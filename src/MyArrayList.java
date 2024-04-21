@@ -68,6 +68,39 @@ public class MyArrayList<T> implements MyList<T> {
         remove(size - 1);
     }
 
+//    public void sort() {
+//        T temp;
+//        for (int i = 0; i < size - 1; i++) {
+//            for (int j = 0; j < size - i - 1; j++) {
+//                if (lst[j] > lst[j + 1]) {
+//                    temp = lst[j];
+//                    lst[j] = lst[j + 1];
+//                    lst[j + 1] = temp;
+//                }
+//            }
+//        }
+//    }
+
+    public int indexOf(Object object) {
+        for (int i = 0; i < size; i++) {
+            if (lst[i] == object) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int lastIndexOf(Object object) {
+        for (int i = size - 1; i >= 0; i--) {
+            if (lst[i] == object) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public void printLst() {
         for (int i = 0; i < size; i++) {
             System.out.print(lst[i] + " ");

@@ -8,5 +8,6 @@ public class Main {
         lst.printLst();
         lst.add(2, 50);
         lst.printLst();
+        System.out.println(lst.indexOf(70));
     }
 }
