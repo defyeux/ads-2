@@ -1,13 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        MyArrayList<Integer> lst = new MyArrayList<>();
-        lst.add(10);
-        lst.add(20);
-        lst.add(30);
-        lst.add(40);
+        MyArrayList<String> lst = new MyArrayList<>();
+        lst.add("b");
+        lst.add("p");
+        lst.add("a");
+        lst.add("c");
+        lst.add("d");
         lst.printLst();
-        lst.add(2, 50);
+        lst.sort();
         lst.printLst();
-        System.out.println(lst.indexOf(70));
     }
 }

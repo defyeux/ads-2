@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class MyArrayList<T> implements MyList<T> {
     private T[] lst;
     private int size;
@@ -68,17 +70,21 @@ public class MyArrayList<T> implements MyList<T> {
         remove(size - 1);
     }
 
-//    public void sort() {
-//        T temp;
-//        for (int i = 0; i < size - 1; i++) {
-//            for (int j = 0; j < size - i - 1; j++) {
-//                if (lst[j] > lst[j + 1]) {
-//                    temp = lst[j];
-//                    lst[j] = lst[j + 1];
-//                    lst[j + 1] = temp;
-//                }
-//            }
-//        }
+    public void sort() {
+        T temp;
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (((Comparable)lst[j]).compareTo(lst[j + 1]) > 0) {
+                    temp = lst[j];
+                    lst[j] = lst[j + 1];
+                    lst[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+//    public int compareTo(T object) {
+//        return (Comparable<T>)
 //    }
 
     public int indexOf(Object object) {
@@ -101,11 +107,54 @@ public class MyArrayList<T> implements MyList<T> {
         return -1;
     }
 
+    public boolean exists(Object object) {
+        for (int i = 0; i < size; i++) {
+            if (lst[i] == object) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void clear() {
+        lst = (T[]) new Object[5];
+        size = 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
     public void printLst() {
         for (int i = 0; i < size; i++) {
             System.out.print(lst[i] + " ");
         }
         System.out.println();
+    }
+
+    public Iterator<T> iterator() {
+        Iterator<T> iterator = new Iterator<T>() {
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < size && lst[currentIndex] != null;
+            }
+
+            @Override
+            public T next() {
+                return lst[currentIndex++];
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+
+        };
+
+        return iterator;
     }
 
     private void checkIndex(int index) {
