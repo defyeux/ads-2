@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a53936c7-47cf-4be3-bce3-d10d9deffe3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyMinHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyMinHeap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.TestLinkedList">
+  <component name="RunManager" selected="Application.TestMyMinHeap">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled1" />
@@ -52,8 +51,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMyMinHeap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestMyMinHeap" />
+      <module name="untitled1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestMyMinHeap" />
         <item itemvalue="Application.TestLinkedList" />
         <item itemvalue="Application.Main" />
       </list>
