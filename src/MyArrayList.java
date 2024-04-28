@@ -83,10 +83,6 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-//    public int compareTo(T object) {
-//        return (Comparable<T>)
-//    }
-
     public int indexOf(Object object) {
         for (int i = 0; i < size; i++) {
             if (lst[i] == object) {
@@ -115,6 +111,16 @@ public class MyArrayList<T> implements MyList<T> {
         }
 
         return false;
+    }
+
+    public Object[] toArray() {
+        Object[] newLst = new Object[size];
+
+        for (int i = 0; i < size; i++) {
+            newLst[i] = lst[i];
+        }
+
+        return newLst;
     }
 
     public void clear() {

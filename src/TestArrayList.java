@@ -1,4 +1,4 @@
-public class Main {
+public class TestArrayList {
     public static void main(String[] args) {
         MyArrayList<Integer> lst = new MyArrayList<>();
         lst.add(20);
