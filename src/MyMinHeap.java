@@ -50,11 +50,11 @@ public class MyMinHeap<T> implements Iterable<T> {
         int leftIndex = leftChildOf(index);
         int minIndex = index;
 
-        if (((Comparable)lst.get(rightIndex)).compareTo(lst.get(minIndex)) < 0) {
+        if (rightIndex < lst.size() && ((Comparable)lst.get(rightIndex)).compareTo(lst.get(minIndex)) < 0) {
             minIndex = rightIndex;
         }
 
-        if (((Comparable)lst.get(leftIndex)).compareTo(lst.get(minIndex)) < 0) {
+        if (leftIndex < lst.size() && ((Comparable)lst.get(leftIndex)).compareTo(lst.get(minIndex)) < 0) {
             minIndex = leftIndex;
         }
 

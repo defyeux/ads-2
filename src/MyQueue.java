@@ -11,7 +11,7 @@ public class MyQueue<T> implements Iterable<T> {
 
     public T deQueue() {
         if (isEmpty()) {
-            throw new IllegalStateException("Queue is empty");
+            throw new IndexOutOfBoundsException("Queue is empty");
         }
 
         T first = lst.getFirst();
@@ -21,7 +21,7 @@ public class MyQueue<T> implements Iterable<T> {
 
     public T peek() {
         if (isEmpty()) {
-            throw new IllegalStateException("Queue is empty");
+            throw new IndexOutOfBoundsException("Queue is empty");
         }
 
         return lst.getFirst();

@@ -18,6 +18,7 @@ public class MyLinkedList<T> implements MyList<T> {
         size = 0;
     }
 
+    @Override
     public void add(T data) {
         MyNode<T> newNode = new MyNode<>(data);
         if (head == null) {
@@ -30,6 +31,18 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
+    @Override
+    public void addFirst(T data) {
+        MyNode node = new MyNode(data);
+        node.next = head;
+    }
+
+    @Override
+    public void addLast(T data) {
+        add(data);
+    }
+
+    @Override
     public void add(int index, T data) {
         checkIndex(index);
         MyNode<T> newNode = new MyNode<>(data);
@@ -40,6 +53,7 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
+    @Override
     public T get(int index) {
         checkIndex(index);
         return (T) getNode(head, index).data;
@@ -49,10 +63,17 @@ public class MyLinkedList<T> implements MyList<T> {
         return head.data;
     }
 
+    @Override
     public T getLast() {
         return tail.data;
     }
 
+    @Override
+    public void set(int index, T data) {
+
+    }
+
+    @Override
     public void remove(int index) {
         checkIndex(index);
         if (index == 0) {
@@ -65,14 +86,22 @@ public class MyLinkedList<T> implements MyList<T> {
         size--;
     }
 
+    @Override
     public void removeFirst() {
         head = head.next;
     }
 
+    @Override
     public void removeLast() {
         this.remove(size - 1);
     }
 
+    @Override
+    public void sort() {
+
+    }
+
+    @Override
     public int indexOf(Object object) {
         int index = 0;
         MyNode<T> currentNode = head;
@@ -89,6 +118,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return -1;
     }
 
+    @Override
     public int lastIndexOf(Object object) {
         MyNode<T> currentNode = head;
         MyNode<T> node = null;
@@ -107,6 +137,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return last_index;
     }
 
+    @Override
     public boolean exists(Object object) {
         MyNode<T> currentNode = head;
 
@@ -121,6 +152,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return false;
     }
 
+    @Override
     public Object[] toArray() {
         Object[] newLst = new Object[size];
         yeuxdef(head, newLst, 0, size);
@@ -135,11 +167,13 @@ public class MyLinkedList<T> implements MyList<T> {
         yeuxdef(node.next, newLst, index + 1, size);
     }
 
+    @Override
     public void clear() {
         head = null;
         size = 0;
     }
 
+    @Override
     public int size() {
         return size;
     }

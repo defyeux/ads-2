@@ -9,9 +9,9 @@ class MyStack<T> implements Iterable<T> {
         lst.add(data);
     }
 
-    public T pop() throws IllegalAccessException {
+    public T pop() {
         if (isEmpty()) {
-            throw new IllegalAccessException("Stack is empty");
+            throw new IndexOutOfBoundsException("Stack is empty");
         }
 
         T last = lst.getLast();
@@ -19,9 +19,9 @@ class MyStack<T> implements Iterable<T> {
         return last;
     }
 
-    public T peek() throws IllegalAccessException {
+    public T peek() {
         if (isEmpty()) {
-            throw new IllegalAccessException("Stack is empty");
+            throw new IndexOutOfBoundsException("Stack is empty");
         }
         return lst.getLast();
     }
