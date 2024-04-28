@@ -1,8 +1,7 @@
 class MyStack<T> {
     private MyArrayList<T> lst;
-    private int size;
 
-    public MyStack(int size) {
+    public MyStack() {
         lst = new MyArrayList<>();
     }
 
