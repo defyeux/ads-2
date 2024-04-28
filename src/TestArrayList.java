@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TestArrayList {
     public static void main(String[] args) {
         MyArrayList<Integer> lst = new MyArrayList<>();
@@ -27,5 +29,7 @@ public class TestArrayList {
         System.out.println("The size of array list: " + lst.size());
         System.out.println(lst.exists(40));
         System.out.println(lst.exists(20));
+        Object[] newLst = lst.toArray();
+        System.out.println(Arrays.toString(newLst));
     }
 }

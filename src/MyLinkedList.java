@@ -33,11 +33,7 @@ public class MyLinkedList<T> implements MyList<T> {
     public void add(int index, T data) {
         checkIndex(index);
         MyNode<T> newNode = new MyNode<>(data);
-        MyNode<T> currentNode = head;
-        for (int i = 0; i < index - 1; i++) {
-            currentNode = currentNode.next;
-        }
-
+        MyNode<T> currentNode = getNode(head, index - 1);
         MyNode<T> subNode = currentNode.next;
         currentNode.next = newNode;
         newNode.next = subNode;
@@ -46,11 +42,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
     public T get(int index) {
         checkIndex(index);
-        MyNode<T> currentNode = head;
-        for (int i = 0; i < index; i++) {
-            currentNode = currentNode.next;
-        }
-        return currentNode.data;
+        return (T) getNode(head, index).data;
     }
 
     public T getFirst() {
@@ -58,7 +50,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     public T getLast() {
-        return this.get(size - 1);
+        return tail.data;
     }
 
     public void remove(int index) {
@@ -67,10 +59,7 @@ public class MyLinkedList<T> implements MyList<T> {
             head = head.next;
         }
         else {
-            MyNode<T> currentNode = head;
-            for (int i = 0; i < index - 1; i++) {
-                currentNode = currentNode.next;
-            }
+            MyNode<T> currentNode = getNode(head, index - 1);
             currentNode.next = currentNode.next.next;
         }
         size--;
@@ -95,11 +84,28 @@ public class MyLinkedList<T> implements MyList<T> {
 
             currentNode = currentNode.next;
             index++;
-
         }
+
         return -1;
     }
 
+    public int lastIndexOf(Object object) {
+        MyNode<T> currentNode = head;
+        MyNode<T> node = null;
+        int index = 0;
+        int last_index = -1;
+
+        while (currentNode != null) {
+            if (currentNode.data == object) {
+                node = currentNode;
+                last_index = index;
+            }
+            currentNode = currentNode.next;
+            index++;
+        }
+
+        return last_index;
+    }
 
     public boolean exists(Object object) {
         MyNode<T> currentNode = head;
@@ -114,6 +120,21 @@ public class MyLinkedList<T> implements MyList<T> {
 
         return false;
     }
+
+    public Object[] toArray() {
+        Object[] newLst = new Object[size];
+        yeuxdef(head, newLst, 0, size);
+        return newLst;
+    }
+
+    private void yeuxdef(MyNode node, Object[] newLst, int index, int size) {
+        newLst[index] = node.data;
+        if (index == size - 1) {
+            return;
+        }
+        yeuxdef(node.next, newLst, index + 1, size);
+    }
+
     public void clear() {
         head = null;
         size = 0;
@@ -132,11 +153,16 @@ public class MyLinkedList<T> implements MyList<T> {
         System.out.println();
     }
 
+    private MyNode getNode(MyNode node, int index) {
+        if (index == 0) {
+            return node;
+        }
+        return getNode(node.next, index - 1);
+    }
+
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index is not correct");
         }
     }
-
-
 }
