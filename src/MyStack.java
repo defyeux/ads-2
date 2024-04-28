@@ -1,4 +1,4 @@
-class MyStack<T> {
+class MyStack<T> implements Iterable<T> {
     private MyArrayList<T> lst;
 
     public MyStack() {
@@ -15,7 +15,7 @@ class MyStack<T> {
         }
 
         T last = lst.getLast();
-        lst.remove(lst.size() - 1);
+        lst.removeLast();
         return last;
     }
 
