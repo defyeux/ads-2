@@ -194,6 +194,15 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
 
+    /**
+     * This method returns the index of the last element for the given data
+     * It uses iterative approach
+     * Time complexity: O(n), where n is the size of array
+     * The iterative algorithm iterates through all number from size - 1 to 0
+     * resulting in linear time complexity
+     * @param object the data of the element whose index is to be returned
+     * @return index of the last element by the given data; if there's no element with such data, return would be -1
+     */
     @Override
     public int lastIndexOf(Object object) {
         for (int i = size - 1; i >= 0; i--) {
@@ -205,6 +214,15 @@ public class MyArrayList<T> implements MyList<T> {
         return -1;
     }
 
+    /**
+     * This method determine whether there is an element with the given data
+     * It uses iterative approach
+     * Time complexity: O(n), where n is the size of array
+     * The iterative algorithm iterates through all number from 0 to size - 1
+     * resulting in linear time complexity
+     * @param object the data of the element which to be checked
+     * @return true if there's an element with the given data, otherwise false
+     */
     @Override
     public boolean exists(Object object) {
         for (int i = 0; i < size; i++) {
@@ -216,6 +234,14 @@ public class MyArrayList<T> implements MyList<T> {
         return false;
     }
 
+    /**
+     * This method return the list transformed to type Object[] array
+     * It uses iterative approach
+     * Time complexity: O(n), where n is the size of array
+     * The iterative algorithm iterates through all number from 0 to size - 1
+     * resulting in linear time complexity
+     * @return array of the list of type Object[]
+     */
     @Override
     public Object[] toArray() {
         Object[] newLst = new Object[size];
@@ -227,12 +253,24 @@ public class MyArrayList<T> implements MyList<T> {
         return newLst;
     }
 
+
+    /**
+     * This method clear the list
+     * Time complexity: O(1)
+     * resulting in constant time complexity
+     */
     @Override
     public void clear() {
         lst = (T[]) new Object[5];
         size = 0;
     }
 
+    /**
+     * This method return the size of the list
+     * Time complexity: O(1)
+     * resulting in constant time complexity
+     * @return the size of the list
+     */
     @Override
     public int size() {
         return size;
